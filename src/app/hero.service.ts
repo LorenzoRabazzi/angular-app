@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, map, tap  } from 'rxjs';
 import { Hero } from './hero';
@@ -8,9 +8,6 @@ import { HEROES } from './mock-heroes';
 @Injectable({providedIn: 'root'})
 
 export class HeroService {
-  updateHero(hero: Hero) {
-    throw new Error('Method not implemented.');
-  }
 
   constructor(private http: HttpClient,
     private messageService: MessageService) {
@@ -58,10 +55,17 @@ export class HeroService {
   };
 
   updateHero(hero: Hero):Observable<any>{
-    returne this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
+    return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
       tap(_ => this.log('update hero id$hero.id ')),
       catchError(this.handleError<any>('updateHero'))
     );
+  }
+
+  addHero(hero: Hero) : Observable<Hero>{
+    return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
+      tap((newHero: Hero)=>this.log('added hero w/ id=${newHero.id}')),
+      catchError(this.handleError<Hero>('addHero'))
+    )
   }
 
 }
