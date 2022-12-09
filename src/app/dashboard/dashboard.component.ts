@@ -14,7 +14,6 @@ export class DashboardComponent implements OnInit{
 
   ngOnInit():void{
     this.getHeroes();
-    console.log("funziona");
   }
 
   getHeroes():void{
