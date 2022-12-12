@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { PokeRicercaComponent } from './poke-ricerca/poke-ricerca.component';
+import { pokeRicercaService } from './poke-ricerca.service';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,11 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroDetailComponent,
     MessageComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    PokeRicercaComponent
+  ],
+  providers: [
+    pokeRicercaService
   ],
   imports: [
     HttpClientModule,
@@ -30,6 +37,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     AppRoutingModule,
     FormsModule,
     BrowserModule,
+    HttpClientModule,
   ],
   bootstrap: [AppComponent]
 })

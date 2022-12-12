@@ -18,7 +18,7 @@ export class HeroSearchComponent {
     this.searchTerms.next(term);
   }
 
-  gOnInit(): void {
+  ngOnInit(): void {
     this.heroes$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
       debounceTime(300),

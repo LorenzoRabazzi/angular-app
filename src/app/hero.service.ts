@@ -5,12 +5,13 @@ import { Hero } from './hero';
 import { MessageService } from './message.service';
 
 @Injectable({providedIn: 'root'})
-
 export class HeroService {
 
   constructor(private http: HttpClient,
     private messageService: MessageService) {
     }
+
+
 
     private heroesUrl = 'api/heroes';
     private log(message:   string){
@@ -31,8 +32,7 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
     .pipe(
-      tap(_=>this.log('fetched heroes')),
-      catchError(this.handleError<Hero[]>('getHeroes', []))
+      tap(_=>catchError(this.handleError<Hero[]>('getHeroes', [])))
     );
   }
 
