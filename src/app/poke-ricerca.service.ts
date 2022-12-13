@@ -6,6 +6,8 @@ import { pokemon } from './pokemon';
 @Injectable({providedIn: 'root'})
 export class pokeRicercaService {
 
+  pokemon:pokemon | null = null;
+
   constructor(private http: HttpClient) {
   }
 
@@ -13,6 +15,10 @@ export class pokeRicercaService {
   private pokeTest = 'https://pokeapi.co/api/v2/pokemon/ditto';
 
   getPokemon(): Observable<pokemon> {
-    return this.http.get<pokemon>(this.pokeTest);
+    return this.http.get<pokemon>(`${this.pokemonUrl}${name}`);
+  }
+
+  search(name:string):void{
+    this.getPokemon();
   }
 }

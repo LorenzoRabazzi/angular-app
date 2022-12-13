@@ -21,5 +21,10 @@ export class PokeRicercaComponent implements OnInit{
       console.log(res)
     });
   }
+
+  searchPokemon(name:string):void{
+    return this.pokeRicercaService.search(name);
+
+  }
 }
 
