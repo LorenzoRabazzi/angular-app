@@ -31,13 +31,9 @@ import { pokeRicercaService } from './poke-ricerca.service';
   ],
   imports: [
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, {dataEncapsulation: false}
-    ),
     AppRoutingModule,
     FormsModule,
     BrowserModule,
-    HttpClientModule,
   ],
   bootstrap: [AppComponent]
 })
