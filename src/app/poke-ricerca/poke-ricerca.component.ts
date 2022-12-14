@@ -6,24 +6,19 @@ import { pokemon } from '../pokemon';
 @Component({
   selector: 'app-poke-ricerca',
   templateUrl: './poke-ricerca.component.html',
-  styleUrls: ['./poke-ricerca.component.css']
+  styleUrls: ['./poke-ricerca.component.css'],
 })
+export class PokeRicercaComponent implements OnInit {
+  pokemon: pokemon | null = null;
+  res: any;
+  constructor(private pokeRicercaService: pokeRicercaService) {}
 
-export class PokeRicercaComponent implements OnInit{
-  pokemon : pokemon | null =null;
-  res:any;
-  constructor(
-    private pokeRicercaService: pokeRicercaService
-  ){}
-
-  ngOnInit():void {
-  }
+  ngOnInit(): void {}
 
   searchPokemon(term: string): void {
-    this.pokeRicercaService.getPokemon(term).subscribe(res => {
+    this.pokeRicercaService.getPokemon(term).subscribe((res) => {
       this.pokemon = res;
-      console.log(res)
+      console.log(res);
     });
   }
 }
-

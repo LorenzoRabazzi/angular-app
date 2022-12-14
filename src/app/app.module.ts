@@ -15,7 +15,6 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { PokeRicercaComponent } from './poke-ricerca/poke-ricerca.component';
 import { pokeRicercaService } from './poke-ricerca.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,17 +23,10 @@ import { pokeRicercaService } from './poke-ricerca.service';
     MessageComponent,
     DashboardComponent,
     HeroSearchComponent,
-    PokeRicercaComponent
+    PokeRicercaComponent,
   ],
-  providers: [
-    pokeRicercaService
-  ],
-  imports: [
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
-    BrowserModule,
-  ],
-  bootstrap: [AppComponent]
+  providers: [pokeRicercaService],
+  imports: [HttpClientModule, AppRoutingModule, FormsModule, BrowserModule],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
