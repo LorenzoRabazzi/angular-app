@@ -13,21 +13,22 @@
     Cerca pokemon
   </button>
 
-  <div>
+  <div  class="ability">
     <label>Ability name</label>
     <li *ngFor="let ability of pokemon?.abilities">
-      <div>
         {{ ability.ability.name }}
-      </div>
     </li>
   </div>
+
+
+
   <br /><br /><br />
-  <div>
+
+
+  <div  class="moves">
     <label> Moves </label>
     <li *ngFor="let moves of pokemon?.moves">
-      <div>
         {{ moves.move.name }}
-      </div>
     </li>
   </div>
 </div>

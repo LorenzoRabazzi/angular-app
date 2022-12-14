@@ -1,0 +1,15 @@
+.moves {
+  background-color:#4b477190 ;
+}
+
+.ability{
+  background-color: #4b477190;
+}
+
+.search-button{
+  background-color: rgba(64, 224, 208, 0.241);
+  &:hover {
+    color: rgba(40, 59, 13, 0.198);
+    background-color: steelblue;
+  }
+}

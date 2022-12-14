@@ -6,7 +6,7 @@ import { pokemon } from '../pokemon';
 @Component({
   selector: 'app-poke-ricerca',
   templateUrl: './poke-ricerca.component.html',
-  styleUrls: ['./poke-ricerca.component.css'],
+  styleUrls: ['./poke-ricerca.component.scss'],
 })
 export class PokeRicercaComponent implements OnInit {
   pokemon: pokemon | null = null;
