@@ -14,11 +14,8 @@ export class pokeRicercaService {
   private pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
   private pokeTest = 'https://pokeapi.co/api/v2/pokemon/ditto';
 
-  getPokemon(): Observable<pokemon> {
-    return this.http.get<pokemon>(`${this.pokemonUrl}${name}`);
+  getPokemon(term:string): Observable<pokemon> {
+    return this.http.get<pokemon>(`${this.pokemonUrl}${term}`);
   }
 
-  search(name:string):void{
-    this.getPokemon();
-  }
 }

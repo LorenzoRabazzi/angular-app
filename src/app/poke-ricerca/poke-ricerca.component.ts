@@ -10,21 +10,20 @@ import { pokemon } from '../pokemon';
 })
 
 export class PokeRicercaComponent implements OnInit{
-  pokemon!: Observable<pokemon>;
+  pokemon : pokemon | null =null;
   res:any;
   constructor(
     private pokeRicercaService: pokeRicercaService
   ){}
 
   ngOnInit():void {
-     this.pokeRicercaService.getPokemon().subscribe(res=> {
-      console.log(res)
-    });
   }
 
-  searchPokemon(name:string):void{
-    return this.pokeRicercaService.search(name);
-
+  searchPokemon(term: string): void {
+    this.pokeRicercaService.getPokemon(term).subscribe(res => {
+      this.pokemon = res;
+      console.log(res)
+    });
   }
 }
 

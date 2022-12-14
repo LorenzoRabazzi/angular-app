@@ -1,4 +1,18 @@
 <div>
-  <input type="search" placeholder="Digita il nome di un pokémon">
-  <button type="button" class="search-button" (click)="searchPokemon()">Cerca pokemon</button>
+  <input #term type="search" placeholder="Digita il nome di un pokémon">
+  <button type="button" class="search-button" (click)="searchPokemon(term.value)">Cerca pokemon</button>
+
+  <li *ngFor="let ability of pokemon?.abilities">
+    Ability name
+    <div>
+      {{ability.ability.name}}
+    </div>
+  </li>
+
+  <li *ngFor="let moves of pokemon?.moves">
+    Moves
+    <div>
+      {{moves.move.name}}
+    </div>
+  </li>
 </div>

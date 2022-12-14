@@ -1,4 +1,5 @@
 export interface pokemon {
+[x: string]: any
   abilities: Ability[]
   base_experience: number
   forms: Form[]
