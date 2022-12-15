@@ -4,8 +4,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { PokeRicercaComponent } from './poke-ricerca/poke-ricerca.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
+  { path: 'pokeAdd', component: FormComponent },
   { path: 'pokemon', component: PokeRicercaComponent },
   { path: 'heroes', component: HeroesComponent },
   { path: 'dashboard', component: DashboardComponent },

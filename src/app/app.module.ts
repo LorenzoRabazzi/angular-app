@@ -13,6 +13,7 @@ import { pokeRicercaService } from './poke-ricerca.service';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     HeroSearchComponent,
     PokeRicercaComponent,
+    FormComponent,
   ],
   providers: [pokeRicercaService],
   imports: [

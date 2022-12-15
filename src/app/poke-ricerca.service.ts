@@ -16,3 +16,7 @@ export class pokeRicercaService {
     return this.http.get<pokemon>(`${this.pokemonUrl}${term}`);
   }
 }
+
+
+
+

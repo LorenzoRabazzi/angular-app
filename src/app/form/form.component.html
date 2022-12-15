@@ -1,0 +1,15 @@
+<form [formGroup]="pokeForm" (ngSubmit)="onSubmit()">
+
+  <label for="pokeName">Pokemon name</label>
+  <input id="name" type="text" formControlName="pokeName">
+
+  <label for="pokeType">Pokemon type</label>
+  <input id="type" type="text" formControlName="pokeType">
+
+  <label for="pokeEvolution">Pokemon evolution</label>
+  <input for="evolution" type="text" formControlName="pokeEvolution">
+
+  <p>Insert all the data to submit</p>
+<button type="submit" [disabled]="!pokeForm.valid">Submit</button>
+
+</form>
