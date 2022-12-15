@@ -13,12 +13,14 @@ export class PokeRicercaComponent implements OnInit {
   res: any;
   constructor(private pokeRicercaService: pokeRicercaService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.pokemon = JSON.parse(localStorage.getItem('lastPokemon') as string);
+  }
 
   searchPokemon(term: string): void {
     this.pokeRicercaService.getPokemon(term).subscribe((res) => {
       this.pokemon = res;
-      console.log(res);
+      localStorage.setItem('lastPokemon', JSON.stringify(res));
     });
   }
 }
