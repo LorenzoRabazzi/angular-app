@@ -10,11 +10,22 @@ export class pokeRicercaService {
   constructor(private http: HttpClient) {}
 
   private pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
-  private pokeTest = 'https://pokeapi.co/api/v2/pokemon/ditto';
+  private pokeAdd = 'https://reqres.in/api/users'
 
   getPokemon(term: string): Observable<pokemon> {
     return this.http.get<pokemon>(`${this.pokemonUrl}${term}`);
   }
+
+  addPokemon(pokemonName:string, pokemonType:string, pokemonEvolution:boolean):Observable<void>{
+    const body = {
+      pokemonName,
+      pokemonType,
+      pokemonEvolution
+    };
+    return this.http.post<void>(`${this.pokeAdd}`, body);
+
+  }
+
 }
 
 

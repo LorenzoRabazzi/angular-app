@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 import { pokeRicercaService } from '../poke-ricerca.service';
 import { pokemon } from '../pokemon';
 

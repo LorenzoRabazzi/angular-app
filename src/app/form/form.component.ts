@@ -1,24 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { pokemon } from '../pokemon';
+import { pokeRicercaService } from '../poke-ricerca.service';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent {
+export class FormComponent implements OnInit{
 
+  res:any;
   pokemon:pokemon | null=null;
   pokeForm = new FormGroup ({
     pokeName: new FormControl(''),
     pokeType: new FormControl(''),
-    pokeEvolution: new FormControl('')
-,  });
+    pokeEvolution: new FormControl(false),
+  });
 
-    onSubmit():void{
-      console.warn(this.pokeForm.value)
-    }
+  constructor(private pokeRicercaService : pokeRicercaService) {}
+
+  ngOnInit(): void {
+  }
+
+  addPokemon():void{
+
+    this.pokeRicercaService.addPokemon(
+      this.pokeForm.value.pokeName ? this.pokeForm.value.pokeName : "",
+      this.pokeForm.value.pokeType ? this.pokeForm.value.pokeType : "",
+      this.pokeForm.value.pokeEvolution ? this.pokeForm.value.pokeEvolution : false
+    ).subscribe(()=>{
+      console.log("CIAO")
+    })
+  }
 
 }
 
