@@ -1,0 +1,17 @@
+.noteBoxes {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 300px;
+}
+
+.type1 {
+  border-color: #00b353;
+  background-color: #00b353;
+}
+
+.type2 {
+  border-color: #d73232;
+  background-color: #d73232;
+}

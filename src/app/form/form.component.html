@@ -1,9 +1,10 @@
-<form [formGroup]="pokeForm">
-  <div>
-    <label for="pokeName">Pokemon name</label>
+<form [formGroup]="pokeForm" (ngSubmit)="addPokemon()">
+  <div class="pokeName">
+    <label for="pokeName">Pokemon name not less than four letters</label>
     <input id="name" type="text" formControlName="pokeName" />
   </div>
-  <div>
+
+  <div class="pokeType">
     <label for="pokeType">Pokemon type</label>
     <select formControlName="pokeType" id="type">
       <option value="fire">Fire</option>
@@ -11,13 +12,38 @@
       <option value="water">Water</option>
       <option value="fly">Fire</option>
       <option value="rock">Rock</option>
-      <option value="-resetType">{{ "" }}</option>
     </select>
   </div>
-  <div>
+
+  <div class="pokeId">
+    <label for="pokeId">Pokemon id</label>
+    <input id="id" type="number" formControlName="pokeId" />
+  </div>
+
+  <div class="pokeEvolution">
     <label for="pokeEvolution">Pokemon evolution</label>
     <input for="evolution" type="checkbox" formControlName="pokeEvolution" />
   </div>
+
   <p>Insert all the data to submit</p>
-  <button type="button" (click)="addPokemon()">Add pokemon</button>
+
+  <input title="submit" type="submit" [disabled]="pokeForm.invalid" >
+
+
+  <div
+    *ngIf="pokeForm.valid; then thenTemplateName; else elseTemplateName"
+  ></div>
+  <ng-template #thenTemplateName>
+    <p class="noteBoxes type1">Form ready to be submitted</p>
+  </ng-template>
+
+  <ng-template #elseTemplateName>
+    <p class="noteBoxes type2">Form not valid right now complete to submit</p>
+  </ng-template>
 </form>
+
+
+<div class="errorTest">
+  <label for="errorTest">Test an error call response</label>
+  <input id="errorTest" type="checkbox" name="errorTest" [(ngModel)]="pokeErr">
+</div>

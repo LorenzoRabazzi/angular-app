@@ -10,24 +10,27 @@ export class pokeRicercaService {
   constructor(private http: HttpClient) {}
 
   private pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
-  private pokeAdd = 'https://reqres.in/api/users'
+  private pokeAdd = 'https://reqres.in/api/users';
+  private pokeError = 'https://reqres.in/api/login';
 
   getPokemon(term: string): Observable<pokemon> {
     return this.http.get<pokemon>(`${this.pokemonUrl}${term}`);
   }
 
-  addPokemon(pokemonName:string, pokemonType:string, pokemonEvolution:boolean):Observable<void>{
+  addPokemon(
+    pokemonName: string,
+    pokemonType: string,
+    pokemonId: number,
+    pokemonEvolution: boolean,
+    generateError: boolean
+  ): Observable<void> {
     const body = {
       pokemonName,
       pokemonType,
-      pokemonEvolution
+      pokemonId,
+      pokemonEvolution,
     };
-    return this.http.post<void>(`${this.pokeAdd}`, body);
-
+    return this.http.post<void>(generateError ? this.pokeError : this.pokeAdd, body);
   }
 
 }
-
-
-
-
